@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "843066826345",
+    "firebase_url": "https://dailycolor-e1036.firebaseio.com",
+    "project_id": "dailycolor-e1036",
+    "storage_bucket": "dailycolor-e1036.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843066826345:android:058ca655b172e351d34cf8",
+        "android_client_info": {
+          "package_name": "org.techtown.dailycolorproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843066826345-btba37q9e7l4iorqsqu14eu9s47vvuau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVh1-oD-cqIGyUYR0XNFCPtqS7bU8z4UU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843066826345-btba37q9e7l4iorqsqu14eu9s47vvuau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
