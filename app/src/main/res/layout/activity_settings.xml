@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SettingsActivity">
-    <LinearLayout
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="org.techtown.dailycolorproject.SettingPreferenceFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
-
-    </LinearLayout>
+        android:layout_weight="1"/>
 
     <!--Bottom menu-->
     <LinearLayout

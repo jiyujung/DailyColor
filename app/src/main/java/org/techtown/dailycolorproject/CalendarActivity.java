@@ -16,17 +16,6 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
-        Button button1 =(Button) findViewById(R.id.test);
-        button1.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), InformationMain.class);
-                startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-            }
-        });
-
         onCalendar = findViewById(R.id.oncalendar_click1);
         onCalendar.setOnClickListener(btnListener);
 
