@@ -1,6 +1,7 @@
 package org.techtown.dailycolorproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,11 @@ public class PixeldiaryActivity extends AppCompatActivity {
 
         bar_settings = findViewById(R.id.settings_unclick1);
         bar_settings.setOnClickListener(bottomBarListener);
+      
+        //툴바 사용
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        //툴바 타이틀 지우기
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
     //bottom bar listener
     View.OnClickListener bottomBarListener=new View.OnClickListener(){

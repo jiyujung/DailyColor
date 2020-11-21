@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:title="비밀번호 설정"
+        android:key="switch"
+        android:defaultValue="false"/>
+
+    <Preference
+        android:title="앱 소개 ">
+        <intent android:targetPackage="org.techtown.dailycolorproject"
+            android:targetClass="org.techtown.dailycolorproject.InformationMain"/>
+    </Preference>
+</PreferenceScreen>
