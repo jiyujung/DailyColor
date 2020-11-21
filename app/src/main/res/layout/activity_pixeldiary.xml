@@ -41,14 +41,14 @@
         android:orientation="horizontal"
         >
         <ImageButton
-            android:id="@+id/oncalendar_click2"
+            android:id="@+id/oncalendar_unclick2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/oncalendar_unclick"
             />
         <ImageButton
-            android:id="@+id/pixeldiary_unclick2"
+            android:id="@+id/pixeldiary_click2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

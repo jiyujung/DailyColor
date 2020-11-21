@@ -19,7 +19,7 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-
+      
         //툴바 사용
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         //툴바 타이틀 지우기
