@@ -87,7 +87,7 @@
                 </RelativeLayout>
             </LinearLayout>
 
-            <!--view pager-->
+            <!--view pager-2020,prepare 보여줌-->
             <org.techtown.dailycolorproject.NonSwipeableViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
