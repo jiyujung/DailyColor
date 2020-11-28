@@ -154,21 +154,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"                    android:text="3 "
+                        android:layout_marginTop="10dp"
+                        android:text="3 "
                         android:textColor="#E1817C" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"                    android:text="4 "
+                        android:layout_marginTop="10dp"
+                        android:text="4 "
                         android:textColor="#E1817C" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"                    android:text="5 "
+                        android:layout_marginTop="10dp"
+                        android:text="5 "
                         android:textColor="#E1817C" />
 
                     <TextView
@@ -335,7 +338,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:text="26"
                         android:textColor="#E1817C" />
 
@@ -385,15 +388,142 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     >
+                    <!--
                     <GridView
                         android:id="@+id/pixel_grid"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:columnWidth="20dp"
-                        android:verticalSpacing="3dp"
+                        android:columnWidth="5dp"
+                        android:gravity="center"
                         android:horizontalSpacing="3dp"
                         android:numColumns="12"
-                        android:gravity="center"
+                        android:verticalSpacing="0dp" />
+                        -->
+                    <!--
+                    <GridView
+                        android:id="@+id/pixel_grid_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:numColumns="1"
+                        android:horizontalSpacing="20dp"
+                        android:verticalSpacing="20dp"
+                        />
+                      -->
+                    <!--
+                    <GridView
+                        android:id="@+id/pixel_grid_2"
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        />
+                    -->
+
+                    <!--여기-->
+                    <ListView
+                        android:id="@+id/pixel_listView_1"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_2"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_3"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_4"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_5"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_6"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_7"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_8"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_9"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_10"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_11"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
+                        />
+                    <ListView
+                        android:id="@+id/pixel_listView_12"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:dividerHeight="5dp"
+                        android:divider="#00000000"
                         />
                 </LinearLayout>
             </LinearLayout>
