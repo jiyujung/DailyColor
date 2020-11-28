@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFBCB9"
+        android:minHeight="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/today_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Add"
+            android:textSize="22dp"
+            android:textColor="#F46760">
+        </TextView>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/show_img"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/camera">
+    </ImageView>
+
+    <EditText
+        android:id="@+id/today_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="오늘 하루의 제목을 정해 주세요."
+        android:textSize="20sp"
+        android:layout_marginLeft="30dp"
+        android:background="@null"/>
+
+    <EditText
+        android:id="@+id/today_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="오늘은 어떤 하루를 보내셨나요?"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:background="@null"/>
+
+</LinearLayout>

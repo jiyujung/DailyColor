@@ -27,7 +27,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_weight="1">
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mcv_showOtherDates="none"
+
+            app:mcv_arrowColor="#F46760"
+            app:mcv_selectionColor="@color/colorPrimary"
+            app:mcv_monthLabels="@array/custom_month"
+            app:mcv_weekDayLabels="@array/custom_weekday"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FFE7E5"/>
 
     </LinearLayout>
 
