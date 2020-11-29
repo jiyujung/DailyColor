@@ -51,6 +51,7 @@ public class PostActivity extends AppCompatActivity {
 
                             RecyclerView.Adapter mAdapter = new PostAdapter(PostActivity.this, postList);
                             recyclerView.setAdapter(mAdapter);
+
                         } else {
                             Log.d(TAG, "Error getting documents : ", task.getException());
                         }

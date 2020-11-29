@@ -1,6 +1,7 @@
 package org.techtown.dailycolorproject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,7 +28,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MainViewHolder
     private ArrayList<AddInfo> mDataset;
     private Activity activity;
     private FirebaseFirestore firebaseFirestore;
-
+    public Context context;
 
     static class MainViewHolder extends RecyclerView.ViewHolder{
         CardView cardView;
@@ -50,7 +53,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MainViewHolder
     @Override
     public PostAdapter.MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post, parent, false);
-        final MainViewHolder mainViewHolder = new MainViewHolder(activity, cardView, mDataset.get(viewType)); //-------- nainViewHolder
+        final MainViewHolder mainViewHolder = new MainViewHolder(activity, cardView, mDataset.get(viewType)); //-------- mainViewHolder
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +76,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MainViewHolder
         titleTextView.setText(mDataset.get(position).getTitle());
         contentsTextView.setText(mDataset.get(position).getContent());
         dateTextView.setText(mDataset.get(position).getDate());
+
+        if(mDataset.get(position).getShowImg() != null){
+            Glide.with(activity).load(mDataset.get(position).getShowImg()).centerCrop().override(500).into(showImg);
+        }
     }
 
     @Override
