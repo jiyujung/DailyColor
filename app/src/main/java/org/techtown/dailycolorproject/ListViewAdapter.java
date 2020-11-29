@@ -1,6 +1,7 @@
 package org.techtown.dailycolorproject;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.icu.text.Transliterator;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -50,7 +52,7 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         final int pos=position;
         final Context context=parent.getContext();//어플리케이션 정보를 담고 있음
 
@@ -61,11 +63,11 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         //화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView=(ImageView)convertView.findViewById(R.id.pixel);
+        final ImageView iconImageView=(ImageView)convertView.findViewById(R.id.pixel);
 
         // Data Set(items -> 위에서 지정한 ArrayList)에서 position에 위치한 데이터 참조 획득
         //각 리스트에 뿌려줄 아이템 받아오는데 ListItem 재활용
-        ListItem listViewItem=getItem(position);
+        final ListItem listViewItem=getItem(position);
 
         //아이템 내 각 위젯에 데이터 반영
         iconImageView.setImageDrawable(listViewItem.getIcon());
@@ -83,21 +85,44 @@ public class ListViewAdapter extends BaseAdapter {
 
                 dlg.setView(dialogView);
 
-                Button button_red=view.findViewById(R.id.dialog_red);
-                //button_red.setOnClickListener(btnOnclickListenerItemModify);
-                Button button_yello=view.findViewById(R.id.dialog_yello);
-                //button_yello.setOnClickListener(btnOnclickListenerItemModify);
-                Button button_green=view.findViewById(R.id.dialog_green);
-                //button_green.setOnClickListener(btnOnclickListenerItemModify);
-                Button button_darkblue=view.findViewById(R.id.dialog_darkblue);
-                //button_darkblue.setOnClickListener(btnOnclickListenerItemModify);
-                Button button_purple=view.findViewById(R.id.dialog_purple);
-                //button_purple.setOnClickListener(btnOnclickListenerItemModify);
+                Button button_red=dialogView.findViewById(R.id.dialog_red);
+                button_red.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        iconImageView.setImageResource(R.drawable.pixel_red);
+                    }
+                });
+                Button button_yello=dialogView.findViewById(R.id.dialog_yello);
+                button_yello.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        iconImageView.setImageResource(R.drawable.pixel_yello);
+                    }
+                });
+                Button button_green=dialogView.findViewById(R.id.dialog_green);
+                button_green.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        iconImageView.setImageResource(R.drawable.pixel_green);
+                    }
+                });
+                Button button_darkblue=dialogView.findViewById(R.id.dialog_darkblue);
+                button_darkblue.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        iconImageView.setImageResource(R.drawable.pixel_darkblue);
+                    }
+                });
+                Button button_purple=dialogView.findViewById(R.id.dialog_purple);
+                button_purple.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        iconImageView.setImageResource(R.drawable.pixel_purple);
+                    }
+                });
                 dlg.show();
             }
         });
-
         return convertView;//뷰 객체를 반환합니다.
     }
-
 }
