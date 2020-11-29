@@ -22,6 +22,11 @@ import org.techtown.dailycolorproject.decorators.SaturdayDecorator;
 import org.techtown.dailycolorproject.decorators.SundayDecorator;
 import org.techtown.dailycolorproject.decorators.TodayDecorator;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 public class CalendarActivity extends AppCompatActivity {
     ImageButton onCalendar, pixeldiary, settings;
     Button showPost;
@@ -33,11 +38,11 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
-        Intent mainIntent = getIntent();
-        String count = mainIntent.getStringExtra("count");
-
-        result = findViewById(R.id.result);
-        result.setText(count);
+//        Intent mainIntent = getIntent();
+//        String count1 = mainIntent.getStringExtra("count");
+//
+//        result = findViewById(R.id.result);
+//        result.setText(count1);
       
         //툴바 사용
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
