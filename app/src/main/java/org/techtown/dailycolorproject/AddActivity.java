@@ -24,11 +24,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -59,13 +62,12 @@ public class AddActivity extends AppCompatActivity {
 
     private Uri post_image_uri = null;
 
-    private ImageView back_btn;
-    private Button post_btn;
-
     private StorageReference storageReference;
     private FirebaseFirestore firebaseFirestore;
 
     private Bitmap compressedImageFile;
+
+    private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +99,6 @@ public class AddActivity extends AppCompatActivity {
                         .setMinCropResultSize(700, 512)
                         .setAspectRatio(1, 1)
                         .start(AddActivity.this);
-
-
             }
         });
     }
@@ -177,16 +177,16 @@ public class AddActivity extends AppCompatActivity {
                                                     public void onComplete(@NonNull Task<DocumentReference> task) {
 
                                                         if(task.isSuccessful()) {
+                                                            count++;
                                                             Toast.makeText(AddActivity.this,"글이 추가되었습니다!",Toast.LENGTH_LONG).show();
                                                             Intent mainIntent = new Intent(AddActivity.this, CalendarActivity.class);
+                                                            mainIntent.putExtra("count", count);
                                                             startActivity(mainIntent);
-
-
                                                         }
                                                     }
                                                 });
 
-                                                firebaseFirestore.collection("/posts").add(PostMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                                firebaseFirestore.collection("Users/"+"main"+"/posts").add(PostMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                                     @Override
                                                     public void onComplete(@NonNull Task<DocumentReference> task) {
                                                         if(task.isSuccessful()) {
@@ -215,7 +215,6 @@ public class AddActivity extends AppCompatActivity {
         post_title = findViewById(R.id.today_title);
         post_content = findViewById(R.id.today_content);
         post_image = findViewById(R.id.show_img);
-        post_btn = findViewById(R.id.btn_check);
     }
 
     private void initial() {

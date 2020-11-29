@@ -34,7 +34,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="350dp"
             app:mcv_showOtherDates="none"
 
             app:mcv_arrowColor="#F46760"
@@ -43,10 +43,14 @@
             app:mcv_weekDayLabels="@array/custom_weekday"
             />
 
-        <View
+        <Button
+            android:id="@+id/show_post"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#FFE7E5"/>
+            android:layout_height="40dp"
+            android:text="글 보기"
+            android:background="#F9EDED"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
 
     </LinearLayout>
 

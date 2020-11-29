@@ -9,8 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -23,6 +23,7 @@ import org.techtown.dailycolorproject.decorators.TodayDecorator;
 
 public class CalendarActivity extends AppCompatActivity {
     ImageButton onCalendar, pixeldiary, settings;
+    Button showPost;
     MaterialCalendarView materialCalendarView;
 
     @Override
@@ -69,6 +70,9 @@ public class CalendarActivity extends AppCompatActivity {
 
         settings = findViewById(R.id.settings_unclick1);
         settings.setOnClickListener(btnListener);
+
+        showPost = findViewById(R.id.show_post);
+        showPost.setOnClickListener(btnListener);
     }
 
     View.OnClickListener btnListener = new View.OnClickListener() {
@@ -87,6 +91,9 @@ public class CalendarActivity extends AppCompatActivity {
                 case R.id.settings_unclick1:
                     intent = new Intent(getApplicationContext(), SettingsActivity.class);
                     Toast.makeText(getApplicationContext(), "설정을 통해 기능을 활용하거나 확인해보세요.", Toast.LENGTH_LONG).show();
+                    break;
+                case R.id.show_post:
+                    intent = new Intent(getApplicationContext(), PostActivity.class);
                     break;
             }
             startActivity(intent);
