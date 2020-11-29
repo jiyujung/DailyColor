@@ -149,4 +149,5 @@ public class Pixeldiary_fg2020 extends Fragment {
 
         return view;
     }
+
 }
