@@ -1,10 +1,12 @@
 package org.techtown.dailycolorproject;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -48,18 +50,18 @@ public class Pixeldiary_fg2020 extends Fragment {
         ListViewAdapter adapter1,adapter2,adapter3,adapter4,adapter5,adapter6,adapter7,adapter8,adapter9,adapter10,adapter11,adapter12;
 
         //Adapter생성
-        adapter1=new ListViewAdapter();
-        adapter2=new ListViewAdapter();
-        adapter3=new ListViewAdapter();
-        adapter4=new ListViewAdapter();
-        adapter5=new ListViewAdapter();
-        adapter6=new ListViewAdapter();
-        adapter7=new ListViewAdapter();
-        adapter8=new ListViewAdapter();
-        adapter9=new ListViewAdapter();
-        adapter10=new ListViewAdapter();
-        adapter11=new ListViewAdapter();
-        adapter12=new ListViewAdapter();
+        adapter1=new ListViewAdapter(getActivity());
+        adapter2=new ListViewAdapter(getActivity());
+        adapter3=new ListViewAdapter(getActivity());
+        adapter4=new ListViewAdapter(getActivity());
+        adapter5=new ListViewAdapter(getActivity());
+        adapter6=new ListViewAdapter(getActivity());
+        adapter7=new ListViewAdapter(getActivity());
+        adapter8=new ListViewAdapter(getActivity());
+        adapter9=new ListViewAdapter(getActivity());
+        adapter10=new ListViewAdapter(getActivity());
+        adapter11=new ListViewAdapter(getActivity());
+        adapter12=new ListViewAdapter(getActivity());
 
         //listView1
         //리스트뷰 참조 및 Adapter달기
