@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -24,12 +25,19 @@ import org.techtown.dailycolorproject.decorators.TodayDecorator;
 public class CalendarActivity extends AppCompatActivity {
     ImageButton onCalendar, pixeldiary, settings;
     Button showPost;
+    TextView result;
     MaterialCalendarView materialCalendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+        Intent mainIntent = getIntent();
+        String count = mainIntent.getStringExtra("count");
+
+        result = findViewById(R.id.result);
+        result.setText(count);
       
         //툴바 사용
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));

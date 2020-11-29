@@ -67,7 +67,7 @@ public class AddActivity extends AppCompatActivity {
 
     private Bitmap compressedImageFile;
 
-    private int count;
+    private int count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
