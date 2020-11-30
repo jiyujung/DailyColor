@@ -14,13 +14,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ListViewAdapter extends BaseAdapter {
 
@@ -103,6 +110,7 @@ public class ListViewAdapter extends BaseAdapter {
 
                 dlg.setView(dialogView);
 
+                //콜렉션 구별 위해 Adapter 생성할 때 따로 이름을 받아 분류
                 String collectionName="";
                 switch (adapterName){
                     case 1:
@@ -143,14 +151,44 @@ public class ListViewAdapter extends BaseAdapter {
                         break;
                 }
 
+                final String plg="false";
+
                 //dialog에 있는 픽셀 색 버튼 클릭 이벤트
                 Button button_red=dialogView.findViewById(R.id.dialog_red);
+                final String finalCollectionName = collectionName;
+                final String finalPlg=plg;
                 button_red.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
                         //이미지 변경하고 저장
                         iconImageView.setImageResource(R.drawable.pixel_red);
+                        final Map<String,Object> PixelMap=new HashMap<>();
+                        db.collection(finalCollectionName).get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if(task.isSuccessful()){
+                                            for (QueryDocumentSnapshot document : task.getResult()){
+                                                Log.d("파이어베이스[ADD]", document.getId() + " => " + document.getData());
+                                                String spos=Integer.toString(pos);//포지션
+                                                if(!document.getData().get("position").toString().equals(spos)){
+                                                    //선택된 포지션과 collection에서의 포지션 값 중 동일한 것이 있을 떄
+                                                    //필드 값 수정해야 함(덮어쓰기)
+                                                    Log.d("파이어베이스[ADD] start","position="+pos+" image="+0);
 
+                                                    PixelMap.put("position",pos);
+                                                    PixelMap.put("image",0);
+
+                                                }else{
+                                                    //데이터 있을 땐 추가 안함
+                                                    return;
+                                                }
+                                            }//end of for
+                                            db.collection(finalCollectionName).add(PixelMap);
+                                            Log.d("파이어베이스[ADD] done","position="+pos+"image"+0);
+                                        }
+                                    }
+                                });
                     }
                 });
                 Button button_yello=dialogView.findViewById(R.id.dialog_yello);
@@ -158,6 +196,33 @@ public class ListViewAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
                         iconImageView.setImageResource(R.drawable.pixel_yello);
+                        final Map<String,Object> PixelMap=new HashMap<>();
+                        db.collection(finalCollectionName).get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if(task.isSuccessful()){
+                                            for (QueryDocumentSnapshot document : task.getResult()){
+                                                Log.d("파이어베이스[ADD]", document.getId() + " => " + document.getData());
+                                                String spos=Integer.toString(pos);//포지션
+                                                if(!document.getData().get("position").toString().equals(spos)){
+                                                    //선택된 포지션과 collection에서의 포지션 값 중 동일한 것이 있을 떄
+                                                    //필드 값 수정해야 함(덮어쓰기)
+                                                    Log.d("파이어베이스[ADD] start","position="+pos+" image="+0);
+
+                                                    PixelMap.put("position",pos);
+                                                    PixelMap.put("image",1);
+
+                                                }else{
+                                                    //데이터 있을 땐 추가 안함
+                                                    return;
+                                                }
+                                            }//end of for
+                                            db.collection(finalCollectionName).add(PixelMap);
+                                            Log.d("파이어베이스[ADD] done","position="+pos+"image"+0);
+                                        }
+                                    }
+                                });
                     }
                 });
                 Button button_green=dialogView.findViewById(R.id.dialog_green);
@@ -165,6 +230,33 @@ public class ListViewAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
                         iconImageView.setImageResource(R.drawable.pixel_green);
+                        final Map<String,Object> PixelMap=new HashMap<>();
+                        db.collection(finalCollectionName).get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if(task.isSuccessful()){
+                                            for (QueryDocumentSnapshot document : task.getResult()){
+                                                Log.d("파이어베이스[ADD]", document.getId() + " => " + document.getData());
+                                                String spos=Integer.toString(pos);//포지션
+                                                if(!document.getData().get("position").toString().equals(spos)){
+                                                    //선택된 포지션과 collection에서의 포지션 값 중 동일한 것이 있을 떄
+                                                    //필드 값 수정해야 함(덮어쓰기)
+                                                    Log.d("파이어베이스[ADD] start","position="+pos+" image="+0);
+
+                                                    PixelMap.put("position",pos);
+                                                    PixelMap.put("image",2);
+
+                                                }else{
+                                                    //데이터 있을 땐 추가 안함
+                                                    return;
+                                                }
+                                            }//end of for
+                                            db.collection(finalCollectionName).add(PixelMap);
+                                            Log.d("파이어베이스[ADD] done","position="+pos+"image"+0);
+                                        }
+                                    }
+                                });
                     }
                 });
                 Button button_darkblue=dialogView.findViewById(R.id.dialog_darkblue);
@@ -172,6 +264,33 @@ public class ListViewAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
                         iconImageView.setImageResource(R.drawable.pixel_darkblue);
+                        final Map<String,Object> PixelMap=new HashMap<>();
+                        db.collection(finalCollectionName).get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if(task.isSuccessful()){
+                                            for (QueryDocumentSnapshot document : task.getResult()){
+                                                Log.d("파이어베이스[ADD]", document.getId() + " => " + document.getData());
+                                                String spos=Integer.toString(pos);//포지션
+                                                if(!document.getData().get("position").toString().equals(spos)){
+                                                    //선택된 포지션과 collection에서의 포지션 값 중 동일한 것이 있을 떄
+                                                    //필드 값 수정해야 함(덮어쓰기)
+                                                    Log.d("파이어베이스[ADD] start","position="+pos+" image="+0);
+
+                                                    PixelMap.put("position",pos);
+                                                    PixelMap.put("image",3);
+
+                                                }else{
+                                                    //데이터 있을 땐 추가 안함
+                                                    return;
+                                                }
+                                            }//end of for
+                                            db.collection(finalCollectionName).add(PixelMap);
+                                            Log.d("파이어베이스[ADD] done","position="+pos+"image"+0);
+                                        }
+                                    }
+                                });
                     }
                 });
                 Button button_purple=dialogView.findViewById(R.id.dialog_purple);
@@ -179,6 +298,34 @@ public class ListViewAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
                         iconImageView.setImageResource(R.drawable.pixel_purple);
+
+                        final Map<String,Object> PixelMap=new HashMap<>();
+                        db.collection(finalCollectionName).get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if(task.isSuccessful()){
+                                            for (QueryDocumentSnapshot document : task.getResult()){
+                                                Log.d("파이어베이스[ADD]", document.getId() + " => " + document.getData());
+                                                String spos=Integer.toString(pos);//포지션
+                                                if(!document.getData().get("position").toString().equals(spos)){
+                                                    //선택된 포지션과 collection에서의 포지션 값 중 동일한 것이 있을 떄
+                                                    //필드 값 수정해야 함(덮어쓰기)
+                                                    Log.d("파이어베이스[ADD] start","position="+pos+" image="+0);
+
+                                                    PixelMap.put("position",pos);
+                                                    PixelMap.put("image",4);
+
+                                                }else{
+                                                    //데이터 있을 땐 추가 안함
+                                                    return;
+                                                }
+                                            }//end of for
+                                            db.collection(finalCollectionName).add(PixelMap);
+                                            Log.d("파이어베이스[ADD] done","position="+pos+"image"+0);
+                                        }
+                                    }
+                                });
                     }
                 });
                 //다이알로그 보이기

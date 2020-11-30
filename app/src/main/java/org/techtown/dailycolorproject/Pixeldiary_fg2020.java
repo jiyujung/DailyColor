@@ -65,32 +65,9 @@ public class Pixeldiary_fg2020 extends Fragment {
 
         //firebase
         database=FirebaseDatabase.getInstance();
-//        String[] menuItems={"","",""};
-//        ListView listView=(ListView)view.findViewById(R.id.pixel_listView_1);
-//        ArrayAdapter<String> listViewAdapter=new ArrayAdapter<String>(
-//            getActivity(),android.R.layout.simple_list_item_1,menuItems
-//        );
-//        listView.setAdapter(listViewAdapter);
+
         // 빈 데이터 리스트 생성.
         final ArrayList<String> items = new ArrayList<String>() ;
-
-        // ArrayAdapter 생성. 아이템 View를 선택(single choice)가능하도록 만듦.
-        //ListView listView3,listView4,listView5,listView6,listView7,listView8,listView9,listView10,listView11,listView12;
-        //final ListViewAdapter adapter3,adapter4,adapter5,adapter6,adapter7,adapter8,adapter9,adapter10,adapter11,adapter12;
-
-        //Adapter생성
-        //adapter1=new ListViewAdapter(getActivity(),1);
-//        adapter2=new ListViewAdapter(getActivity(),2);
-//        adapter3=new ListViewAdapter(getActivity(),3);
-//        adapter4=new ListViewAdapter(getActivity(),4);
-//        adapter5=new ListViewAdapter(getActivity(),5);
-//        adapter6=new ListViewAdapter(getActivity(),6);
-//        adapter7=new ListViewAdapter(getActivity(),7);
-//        adapter8=new ListViewAdapter(getActivity(),8);
-//        adapter9=new ListViewAdapter(getActivity(),9);
-//       adapter10=new ListViewAdapter(getActivity(),10);
-//        adapter11=new ListViewAdapter(getActivity(),11);
-//        adapter12=new ListViewAdapter(getActivity(),12);
 
         db.collection("PixelOne")
                 .get()
@@ -121,10 +98,10 @@ public class Pixeldiary_fg2020 extends Fragment {
             db.collection("PixelOne")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
+
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d("파이어베이스", document.getId() + " => " + document.getData());
                                     String si=Integer.toString(finalI);
@@ -170,6 +147,7 @@ public class Pixeldiary_fg2020 extends Fragment {
                         }
                     });
         }
+
         //listView1.setAdapter(adapter1);
 
         //listView2
@@ -766,37 +744,37 @@ public class Pixeldiary_fg2020 extends Fragment {
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Log.d("파이어베이스", document.getId() + " => " + document.getData());
+                                    Log.d("12파이어베이스", document.getId() + " => " + document.getData());
                                     String si=Integer.toString(finalI);
                                     if(document.getData().get("position").toString().equals(si)){
-                                        Log.d("파이어베이스", Integer.toString(finalI)+" == " + document.getData().get("position"));
+                                        Log.d("12파이어베이스", Integer.toString(finalI)+" == " + document.getData().get("position"));
                                         switch (document.getData().get("image").toString()){
 
                                             case "0":
                                                 imageIndexFlag =0;
-                                                Log.d("파이어베이스",si+"=>"+imageIndexFlag+"");
+                                                Log.d("12파이어베이스",si+"=>"+imageIndexFlag+"");
                                                 break;
                                             case "1":
                                                 imageIndexFlag =1;
-                                                Log.d("파이어베이스",si+"=>"+imageIndexFlag+"");
+                                                Log.d("12파이어베이스",si+"=>"+imageIndexFlag+"");
                                                 break;
                                             case "2":
                                                 imageIndexFlag =2;
-                                                Log.d("파이어베이스",si+"=>"+imageIndexFlag+"");
+                                                Log.d("12파이어베이스",si+"=>"+imageIndexFlag+"");
                                                 break;
                                             case "3":
                                                 imageIndexFlag =3;
-                                                Log.d("파이어베이스",si+"=>"+imageIndexFlag+"");
+                                                Log.d("12파이어베이스",si+"=>"+imageIndexFlag+"");
                                                 break;
                                             case "4":
                                                 imageIndexFlag =4;
-                                                Log.d("파이어베이스",si+"=>"+imageIndexFlag+"");
+                                                Log.d("12파이어베이스",si+"=>"+imageIndexFlag+"");
                                                 break;
                                         }
                                     }else{
-                                        Log.d("파이어베이스", Integer.toString(finalI)+" != " + document.getData().get("position"));
+                                        Log.d("12파이어베이스", Integer.toString(finalI)+" != " + document.getData().get("position"));
                                         imageIndexFlag =5;
-                                        Log.d("파이어베이스",si+"=>"+imageIndexFlag+"");
+                                        Log.d("12파이어베이스",si+"=>"+imageIndexFlag+"");
                                     }
                                     adapter12.addItem(ContextCompat.getDrawable(getActivity(), imgPixel[imageIndexFlag]));
                                 }//end of for
@@ -805,7 +783,7 @@ public class Pixeldiary_fg2020 extends Fragment {
                                 listView12.setAdapter(adapter12);
 
                             } else {
-                                Log.w("파이어베이스", "Error getting documents.", task.getException());
+                                Log.w("12파이어베이스", "Error getting documents.", task.getException());
                             }
                         }
                     });
