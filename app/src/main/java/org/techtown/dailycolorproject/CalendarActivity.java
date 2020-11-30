@@ -1,29 +1,79 @@
 package org.techtown.dailycolorproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+
+import org.techtown.dailycolorproject.decorators.SaturdayDecorator;
+import org.techtown.dailycolorproject.decorators.SundayDecorator;
+import org.techtown.dailycolorproject.decorators.TodayDecorator;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 public class CalendarActivity extends AppCompatActivity {
     ImageButton onCalendar, pixeldiary, settings;
+    Button showPost;
+    TextView result;
+    MaterialCalendarView materialCalendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
+
+//        Intent mainIntent = getIntent();
+//        String count1 = mainIntent.getStringExtra("count");
+//
+//        result = findViewById(R.id.result);
+//        result.setText(count1);
       
         //툴바 사용
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         //툴바 타이틀 지우기
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        materialCalendarView = findViewById(R.id.calendarView);
+        materialCalendarView.addDecorators(new SundayDecorator(), new SaturdayDecorator(), new TodayDecorator());
+
+        materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+                int Year = date.getYear();
+                int Month = date.getMonth() + 1;
+                int Day = date.getDay();
+
+                Log.i("Year", Year + "");
+                Log.i("Month", Month + "");
+                Log.i("Day", Day + "");
+
+                String selectedDate = Year + "/" + Month + "/" + Day;
+
+                Log.i("selectedDate", selectedDate + "");
+
+                Intent intent = new Intent(CalendarActivity.this, AddActivity.class);
+                intent.putExtra("Date", selectedDate);
+                setResult(Activity.RESULT_OK, intent);
+                Toast.makeText(CalendarActivity.this, selectedDate, Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
 
         onCalendar = findViewById(R.id.oncalendar_click1);
         onCalendar.setOnClickListener(btnListener);
@@ -33,6 +83,9 @@ public class CalendarActivity extends AppCompatActivity {
 
         settings = findViewById(R.id.settings_unclick1);
         settings.setOnClickListener(btnListener);
+
+        showPost = findViewById(R.id.show_post);
+        showPost.setOnClickListener(btnListener);
     }
 
     View.OnClickListener btnListener = new View.OnClickListener() {
@@ -51,6 +104,9 @@ public class CalendarActivity extends AppCompatActivity {
                 case R.id.settings_unclick1:
                     intent = new Intent(getApplicationContext(), SettingsActivity.class);
                     Toast.makeText(getApplicationContext(), "설정을 통해 기능을 활용하거나 확인해보세요.", Toast.LENGTH_LONG).show();
+                    break;
+                case R.id.show_post:
+                    intent = new Intent(getApplicationContext(), PostActivity.class);
                     break;
             }
             startActivity(intent);

@@ -27,8 +27,53 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_weight="1">
 
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:mcv_showOtherDates="none"
+
+            app:mcv_arrowColor="#F46760"
+            app:mcv_selectionColor="@color/colorPrimary"
+            app:mcv_monthLabels="@array/custom_month"
+            app:mcv_weekDayLabels="@array/custom_weekday"
+            />
+
+        <Button
+            android:id="@+id/show_post"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="글 보기"
+            android:background="#F9EDED"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center">-->
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="#F8C0C0"-->
+<!--                android:layout_marginRight="20dp"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="X"-->
+<!--                android:textSize="40sp"-->
+<!--                android:layout_marginRight="20dp"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/result"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="40sp"/>-->
+<!--        </LinearLayout>-->
     </LinearLayout>
 
     <!--Bottom menu-->
